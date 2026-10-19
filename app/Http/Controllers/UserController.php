@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function show(User $user)
     {
-        $products = $user->products; // استخدام العلاقة بالجمع
+        $products = $user->products; 
 
         return response()->json([
             'user' => $user,
