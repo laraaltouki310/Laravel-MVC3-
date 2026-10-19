@@ -47,7 +47,14 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
-        //
+        $validate = $request->validate([
+            'name'=> 'required|string|max:255',
+            'price'=> 'required|numeric',
+        ]);
+
+        $product->update($validate);
+
+        return response()->json($product);
     }
 
     public function destroy(Product $product)
